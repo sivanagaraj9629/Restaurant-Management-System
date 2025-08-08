@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="details">
+        <form [formGroup]="signUpForm" (ngSubmit)="signup()">
+            <text-input [control]="this.fc['name']" [showErrors]="isSubmitted" label="Name"></text-input>
+            <text-input [control]="this.fc['email']" [showErrors]="isSubmitted" label="Email" type="email"></text-input>
+            <text-input [control]="this.fc['contactNumber']" [showErrors]="isSubmitted" label="Contact number"></text-input>
+            <text-input [control]="this.fc['password']" [showErrors]="isSubmitted" label="Password" type="password"></text-input>
+            <text-input [control]="this.fc['confirmPassword']" [showErrors]="isSubmitted" label="Confirm Password" type="password"></text-input>
+            <default-button text="Sign up"></default-button>
+        </form>
+        <div class="login">
+            Already a user? &nbsp;
+            <a routerLink="/login" [queryParams]="{returnUrl: returnUrl}">
+                Login Here
+            </a>
+        </div>
+    </div>
+</div>

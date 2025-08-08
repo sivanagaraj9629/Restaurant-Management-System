@@ -1,0 +1,106 @@
+#container {
+    display: flex;
+    margin-top: 2rem;
+}
+
+#sidebar {
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+    margin-left: 0.5rem;
+}
+
+#main {
+    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+    margin-right: 0.5rem;
+}
+
+.category-container {
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+.category-name {
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 17rem;
+    height: 23.5rem;
+    border: 0.1rem solid rgba(215, 210, 210, 0.542);
+    border-radius: 1rem;
+    margin: 0.6rem;
+    overflow: hidden;
+    color: #e72929;
+    position: relative;
+}
+
+.card-image {
+    object-fit: cover;
+    height: 13.5rem;
+}
+
+.card-content .item {
+    margin: 0.5rem 0.4rem;
+}
+
+.name {
+    font-weight: 600;
+}
+
+.description {
+    color: #414141;
+    font-size: 0.85rem;
+}
+
+.price {
+    background: white;
+    color: #414141;
+    font-size: 1rem;
+}
+
+/* Button */
+.addtocart {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    border-radius: 10rem;
+    font-size: 0.9rem;
+    background: #0652DD;
+    cursor: pointer;
+    transition: transform 0.1s;
+    margin-bottom: 0.5rem;
+}
+
+.addtocart:hover {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.text {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
+    padding: 0.2rem 0;
+}
+
+ion-icon[name="cart-outline"] {
+    margin-right: 0.2rem;
+    height: 1.2rem;
+}

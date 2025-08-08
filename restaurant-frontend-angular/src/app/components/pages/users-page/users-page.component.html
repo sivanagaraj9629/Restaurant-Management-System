@@ -1,0 +1,41 @@
+<div id="container">
+    <div id="sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+
+    <div id="main">
+        <div id="table-container">
+            <div id="title">
+                <h2>Users</h2>
+            </div>
+            <div id="filter">
+                <input type="text" [(ngModel)]="inputValue" (input)="handleFilterValueChanges()" placeholder="Filter">
+            </div>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Contact number</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                <tr *ngFor="let user of users">
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.address}}</td>
+                    <td>{{user.contactNumber}}</td>
+                    <td>{{user.role}}</td>
+                    <td>{{user.status}}</td>
+                    <td class="status">
+                        <mat-slide-toggle [checked]="user.status==='true'" (change)="onStatusChange($event.checked, user.id)"
+                            matTooltip="Activate or Deactivate User"></mat-slide-toggle>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

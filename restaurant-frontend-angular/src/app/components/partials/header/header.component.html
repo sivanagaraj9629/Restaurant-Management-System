@@ -1,0 +1,33 @@
+<header>
+    <div class="container">
+        <a routerLink="/" class="logo">Restaurant Management System</a>
+        <nav>
+            <ul>
+                <li *ngIf="!isAuth">
+                    <a routerLink="/signup">Signup</a>
+                </li>
+                <li *ngIf="!isAuth">
+                    <a routerLink="/login">Login</a>
+                </li>
+                <li *ngIf="isAuth" class="menu-container" (click)="toggleMenu()">
+                    <a (click)="goToDashboard()">
+                        <ion-icon name="person-sharp" class="icon icon-no-fill"></ion-icon>
+                    </a>
+                    <div *ngIf="role==='admin' && menuToggle" class="menu-admin">
+                        <a routerLink="/changePassword">Change password</a>
+                        <a (click)="logout()">Logout</a>
+                    </div>
+                    <div *ngIf="role==='user' && menuToggle" class="menu-user">
+                        <a routerLink="/changePassword">Change password</a>
+                        <a (click)="logout()">Logout</a>
+                    </div>
+                </li>
+                <li>
+                    <a *ngIf="isAuth && role==='user'" routerLink="/cart">
+                        <ion-icon name="bag-outline" class="icon"></ion-icon>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

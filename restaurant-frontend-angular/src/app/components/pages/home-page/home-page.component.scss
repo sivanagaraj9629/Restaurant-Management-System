@@ -1,0 +1,88 @@
+.home-container {
+    margin: 0;
+    text-align: center;
+    border: 1px solid transparent;
+    background-image: url('/assets/images/background.jpg');
+    /* This ensures the image covers the entire background */
+    background-size: cover;
+    background-position: center;
+}
+
+h2 {
+    margin-top: 2.5rem;
+    font-family: sans-serif;
+}
+
+.home-container h3 {
+    /* Default color for all h3 elements within .home-container */
+    color: #af1313;
+}
+
+.home-container h3:first-child {
+    /* Reset color for all h3 elements */
+    color: inherit;
+}
+
+.best-sellers-container {
+    display: flex;
+    width: 100%;
+}
+
+.column-left,
+.column-right {
+    flex: 1;
+}
+
+.column-left {
+    border-right: solid #af1313 1px;
+}
+
+.column-left .row,
+.column-right .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.column-left .row {
+    align-items: flex-end;
+}
+
+.column-right .row {
+    align-items: flex-start;
+}
+
+.row {
+    height: 15rem;
+    width: 100%;
+}
+
+img {
+    height: 13rem;
+    width: 15rem;
+}
+
+.column-left {
+    padding-right: 2rem;
+}
+
+.column-right {
+    padding-left: 2rem;
+}
+
+.column-left .text-container {
+    text-align: right;
+}
+
+.column-right .text-container {
+    text-align: left;
+}
+
+.dish-name {
+    font-size: 1.4rem;
+}
+
+.dish-description {
+    font-size: 1rem;
+    margin-top: -0.2rem;
+}

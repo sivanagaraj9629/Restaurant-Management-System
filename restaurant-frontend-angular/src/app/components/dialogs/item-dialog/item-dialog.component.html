@@ -1,0 +1,81 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout="row">
+        <span>{{dialogData.action}} item</span>
+        <span class="spacer"></span>
+        <button class="mat-dialog-close" mat-icon-button mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="itemForm">
+        <div fxFlex fxLayout="column">
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" required>
+                    <mat-error *ngIf="fc['name'] && fc['name'].touched && fc['name'].invalid">
+                        <span *ngIf="fc['name'].errors?.['required']">Should not be empty</span>
+                        <span *ngIf="fc['name'].errors?.['namePattern']">Name is not valid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap" class="status">
+                <mat-label>Status</mat-label>
+                <mat-slide-toggle *ngIf="dialogData.data" [checked]="dialogData.data.status==='true'"
+                    (change)="onStatusChange($event.checked)"
+                    matTooltip="Activate or Deactivate Item"></mat-slide-toggle>
+                <mat-slide-toggle *ngIf="!(dialogData.data)" (change)="onStatusChange($event.checked)"
+                    matTooltip="Activate or Deactivate Item"></mat-slide-toggle>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Price</mat-label>
+                    <input matInput formControlName="price" required>
+                    <mat-error *ngIf="fc['price'] && fc['price'].touched && fc['price'].invalid">
+                        <span *ngIf="fc['price'].errors?.['required']">Should not be empty</span>
+                        <span *ngIf="fc['price'].errors?.['pricePattern']">Price is not valid</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Category</mat-label>
+                    <mat-select formControlName="categoryId">
+                        <mat-option *ngFor="let category of categories" [value]="category.id">
+                            {{category.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Description</mat-label>
+                    <input matInput formControlName="description">
+                    <mat-error *ngIf="fc['description'] && fc['description'].touched && fc['description'].invalid">
+                        <span *ngIf="fc['description'].errors?.['descriptionPattern']">Description is not valid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <input type="file" (change)="onFileSelected($event)" accept="image/*">
+                <mat-error *ngIf="dialogAction==='Add' && selectedFileName===''">Please select an image</mat-error>
+            </div>
+
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()"
+        [disabled]="!(itemForm.valid && itemForm.dirty)">
+        <mat-icon>save</mat-icon> {{action}}
+    </button>
+    <button mat-raised-button color="warn" mat-dialog-close>
+        <mat-icon>cancel</mat-icon> Close
+    </button>
+</mat-dialog-actions>

@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.details {
+    width: 28rem;
+    padding: 0 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signup, .forgot-password {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forgot-password {
+    margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin-top: 3rem;
+    }
+}

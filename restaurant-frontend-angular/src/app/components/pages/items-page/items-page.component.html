@@ -1,0 +1,46 @@
+<div id="container">
+    <div id="sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+
+    <div id="main">
+        <div id="table-container">
+            <div id="title">
+                <h2>Items</h2>
+            </div>
+            <div id="filter">
+                <input type="text" [(ngModel)]="inputValue" (input)="handleFilterValueChanges()" placeholder="Filter">
+            </div>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Category name</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                <tr *ngFor="let item of items">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.categoryName}}</td>
+                    <td>{{item.status}}</td>
+                    <td>
+                        <div class="actions">
+                            <a class="icon-background">
+                                <ion-icon name="pencil" class="icon" (click)="handleEditItem(item)"></ion-icon>
+                            </a>
+                            <a>
+                                <ion-icon name="trash-outline" class="icon" (click)="handleDeleteItem(item)"></ion-icon>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <button id="add-button" (click)="handleAddItem()">Add item</button>
+        </div>
+    </div>
+</div>

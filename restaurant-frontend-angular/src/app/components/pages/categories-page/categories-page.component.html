@@ -1,0 +1,39 @@
+<div id="container">
+    <div id="sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+
+    <div id="main">
+        <div id="table-container">
+            <div id="title">
+                <h2>Categories</h2>
+            </div>
+            <!--<div class="filter">
+                <input type="text" (keyup)="applyFilter($event)" placeholder="Filter">
+            </div>-->
+            <div id="filter">
+                <input type="text" [(ngModel)]="inputValue" (input)="handleFilterValueChanges()" placeholder="Filter">
+            </div>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+                <tr *ngFor="let category of categories">
+                    <td>{{category.id}}</td>
+                    <td>{{category.name}}</td>
+                    <td>
+                        <a class="icon-background">
+                            <ion-icon name="pencil" class="icon" (click)="handleEditCategory(category)"></ion-icon>
+                        </a>
+                        <a>
+                            <ion-icon name="trash-outline" class="icon" (click)="handleDeleteCategory(category)"></ion-icon>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <button id="add-button" (click)="handleAddCategory()">Add category</button>
+        </div>
+    </div>
+</div>

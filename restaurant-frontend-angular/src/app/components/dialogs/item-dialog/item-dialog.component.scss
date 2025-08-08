@@ -1,0 +1,25 @@
+.spacer {
+    flex: 1 auto;
+}
+
+mat-toolbar {
+    font-family: Roboto;
+    font-weight: 500;
+    width: auto;
+}
+
+mat-form-field {
+    padding: 0.5rem;
+}
+
+mat-hint {
+    color: #af1313;
+}
+
+.status {
+    margin-left: 0.6rem;
+}
+
+.status mat-slide-toggle {
+    margin-left: 0.3rem;
+}

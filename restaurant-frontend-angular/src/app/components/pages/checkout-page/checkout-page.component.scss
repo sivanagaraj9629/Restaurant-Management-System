@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    padding: 1rem 1rem 0.3rem 1rem;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
+
+button {
+    color: white;
+    background-color: #e72929;
+    width: 15rem;
+    height: 3rem;
+    opacity: 0.9;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0.13rem 0.13rem 0.13rem 0.13rem grey;
+}
+
+button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#payment-select {
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0rem 0.5rem 0.2rem;
+    font-size: 1rem;
+}

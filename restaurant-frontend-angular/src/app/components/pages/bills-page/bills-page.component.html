@@ -1,0 +1,44 @@
+<div id="container">
+    <div id="sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+
+    <div id="main">
+        <div id="table-container">
+            <div id="title">
+                <h2>Bills</h2>
+            </div>
+            <table>
+                <tr>
+                    <th *ngIf="role === 'admin'">Id</th>
+                    <th>Issue date</th>
+                    <th>Created by</th>
+                    <th>Name</th>
+                    <th>Payment method</th>
+                    <th>Total</th>
+                    <th *ngIf="role === 'admin'">Uuid</th>
+                    <th>Actions</th>
+                </tr>
+                <tr *ngFor="let bill of bills">
+                    <td *ngIf="role === 'admin'">{{bill.id}}</td>
+                    <td>{{bill.issueDate}}</td>
+                    <td>{{bill.createdBy}}</td>
+                    <td>{{bill.name}}</td>
+                    <td>{{bill.paymentMethod}}</td>
+                    <td>{{bill.total}}</td>
+                    <td *ngIf="role === 'admin'">{{bill.uuid}}</td>
+                    <td>
+                        <div class="actions">
+                            <a *ngIf="role === 'admin'">
+                                <ion-icon name="trash-outline" class="icon" (click)="handleDeleteBill(bill)"></ion-icon>
+                            </a>
+                            <a>
+                                <ion-icon name="open-outline" class="icon" (click)="handleViewBill(bill.uuid)"></ion-icon>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

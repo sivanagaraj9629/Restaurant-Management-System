@@ -1,0 +1,88 @@
+#container {
+    display: flex;
+    margin-top: 2rem;
+}
+
+#sidebar {
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+    margin-left: 0.5rem;
+}
+
+#main {
+    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+    margin-right: 0.5rem;
+}
+
+#table-container {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#title {
+    font-family: sans-serif;
+  }
+
+h2 {
+    margin: 0;
+}
+
+td a {
+    margin: 0 0.5rem;
+}
+
+td a:active {
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.icon {
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+ion-icon[name="trash-outline"] {
+    color: #af1313;
+}
+
+table {
+    margin: 1.5rem 1rem 0 1rem;    // top right bottom left
+    border-collapse: collapse;
+}
+
+td,
+th {
+    text-align: center;
+    padding: 0.5rem 0.5rem;
+}
+
+table,
+td,
+th {
+    border: 1px solid #ddd;
+}
+
+.actions {
+    display: flex;
+}
+
+@media (max-width: 400px) {
+    #main {
+        display: flex;
+        align-items: center;
+    }
+
+    #table-container {
+        width: 100%;
+    }
+
+    #sidebar {
+        display: none;
+    }
+
+}

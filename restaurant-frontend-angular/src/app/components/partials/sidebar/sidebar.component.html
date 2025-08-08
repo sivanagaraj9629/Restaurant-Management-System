@@ -1,0 +1,21 @@
+<div id="sidebar-content">
+    <div class="row" (click)="goToDashboard()">
+        Dashboard
+    </div>
+    
+    <div class="row" routerLink="/categories" *ngIf="role==='admin'">
+        Categories
+    </div>
+
+    <div class="row" routerLink="/items" *ngIf="role==='admin'">
+        Items
+    </div>
+
+    <div class="row" routerLink="/bills">
+        Bills
+    </div>
+
+    <div class="row" routerLink="/users" *ngIf="role==='admin'">
+        Users
+    </div>
+</div>

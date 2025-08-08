@@ -1,0 +1,34 @@
+<div id="container">
+    <div id="sidebar">
+      <app-sidebar></app-sidebar>
+    </div>
+
+  <div id="main">
+    <div class="category-container" *ngFor="let category of filteredCategories">
+      <div class="category-name">{{category.name}}</div>
+      <ul>
+        <li *ngFor="let item of itemsGroupedByCategory.get(category.id)">
+          <div class="card">
+            <!-- Another way to display images without uploading them to the database but just fetching them dynamically from the assets/images folder
+              <img [src]="'assets/images/' + removeSpacesAndUppercase(item.name) + '.jpg'" alt="{{item.name}}" class="card-image" />-->
+            <img class="card-image" [src]="item.itemImages[0].url" alt="{{item.name}}" />
+            <div class="card-content">
+              <div class="item name">{{item.name}}</div>
+              <div class="item description">{{item.description}}</div>
+              <div class="item price">
+                <span>{{item.price | currency}}</span>
+              </div>
+              <div class="item">
+                <button class="addtocart" (click)="addToCart(item)">
+                  <div class="text">
+                    <ion-icon name="cart-outline"></ion-icon> ADD TO CART
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
